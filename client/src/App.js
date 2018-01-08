@@ -3,6 +3,7 @@ import Home from './Home'
 import Blog from './Blog'
 import NavBar from './NavBar'
 import $ from 'jquery'
+import CreatePostContainer from './CreatePostContainer'
 import {
   BrowserRouter as Router,
   Route
@@ -32,7 +33,14 @@ render () {
       <div>
         <NavBar />
         <Route exact path='/' component={Home} />
-        <Route path='/blog' render={() => <Blog posts={this.state.posts} />} />
+        <Route path='/createPost' render={() => <CreatePostContainer
+          loadCommentsFromServer={this.loadCommentsFromServer} />} 
+        />
+        {
+          this.state.posts
+            ? <Route path='/blog' render={() => <Blog posts={this.state.posts} />} />
+            : 'No Blog Posts'
+        }
       </div>
     </Router>
   )

@@ -1,9 +1,26 @@
 import React from 'react'
 
-const Blog = ({test}) =>
+const styles = {
+  container: {
+    display: 'flex'
+  }
+}
+
+const Blog = ({posts}) =>
   <div>
     <h3>Blog</h3>
-    <p>{test}</p>
+    {
+      posts.map(post => {
+        return (
+          <div style={styles.container}>
+            <p>{post.userName}</p>
+            <p>{post.img}</p>
+            <p>{post.comment}</p>
+            <p>{post.location}</p>
+          </div>
+        )
+      })
+    }
   </div>
 
 export default Blog
