@@ -56,7 +56,7 @@ showUniquePost = (post) => {
   }).done((response) => {
     console.log(response)
     const post = response.post
-    alert(`${post.userName}, ${post.img}, ${post.comment}, ${post.location}`)
+    alert(`UserName: ${post.userName}, Image: ${post.img}, Comment: ${post.comment}, Location: ${post.location}`)
   })
 }
 
