@@ -34,7 +34,29 @@ loadCommentsFromServer = () => {
     url: '/api/posts',
     method: 'GET'
   }).done((response) => {
+    console.log(response)
     this.setState({posts: response.posts})
+  })
+}
+
+deletePost = (post) => {
+  $.ajax({
+    url: `/api/posts/${post._Id}`,
+    method: 'DELETE'
+  }).done((response) => {
+    console.log(response)
+    this.loadCommentsFromServer()
+  })
+}
+
+showUniquePost = (post) => {
+  $.ajax({
+    url: `/api/posts/${post._id}`,
+    method: 'GET'
+  }).done((response) => {
+    console.log(response)
+    const post = response.post
+    alert(`${post.userName}, ${post.img}, ${post.comment}, ${post.location}`)
   })
 }
 
@@ -50,7 +72,7 @@ render () {
         />
         {
           this.state.posts
-            ? <Route path='/blog' render={() => <Blog posts={this.state.posts} />} />
+            ? <Route path='/blog' render={() => <Blog showUniquePost={this.showUniquePost} deletePost={this.deletePost} posts={this.state.posts} />} />
             : 'No Blog Posts'
         }
       </div>

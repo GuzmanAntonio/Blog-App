@@ -1,4 +1,5 @@
 import React from 'react'
+import BlogCard from './BlogCard'
 
 const styles = {
   container: {
@@ -8,18 +9,16 @@ const styles = {
   }
 }
 
-const Blog = ({posts}) =>
+const Blog = ({posts, deletePost}) =>
   <div style={styles.container} >
     <h3>User Post</h3>
     {
       posts.map(post => {
         return (
-          <div style={styles.container}>
-            <p>{post.userName}</p>
-            <p>{post.img}</p>
-            <p>{post.comment}</p>
-            <p>{post.location}</p>
-          </div>
+          <BlogCard 
+            post={post}
+            deletePost={deletePost}
+          />
         )
       })
     }

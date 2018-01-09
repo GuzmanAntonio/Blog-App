@@ -37,7 +37,7 @@ class CreatePostContainer extends Component {
       data: post
     }).done((response) => {
       this.props.loadCommentsFromServer()
-      this.props.history.push('/blog')
+      this.props.history.push('/posts')
     })
   }
 
@@ -51,7 +51,6 @@ class CreatePostContainer extends Component {
           onCommentChange={this.onCommentChange}
           onLocationChange={this.onLocationChange}
           handleSubmit={this.handleSubmit}
-          onChangeHandler={this.onChangeHandler}
         />
       </div>
     )
