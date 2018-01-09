@@ -3,6 +3,7 @@ import Home from './Home'
 import Blog from './Blog'
 import NavBar from './NavBar'
 import Header from './Header'
+import PostContainer from './PostContainer'
 import $ from 'jquery'
 import CreatePostContainer from './CreatePostContainer'
 import {
@@ -56,7 +57,7 @@ showUniquePost = (post) => {
   }).done((response) => {
     console.log(response)
     const post = response.post
-    alert(`UserName: ${post.userName}, Image: ${post.img}, Comment: ${post.comment}, Location: ${post.location}`)
+    alert(`UserName: ${post.userName}, Comment: ${post.comment}, Location: ${post.location}`)
   })
 }
 
@@ -75,6 +76,7 @@ render () {
             ? <Route path='/blog' render={() => <Blog showUniquePost={this.showUniquePost} deletePost={this.deletePost} posts={this.state.posts} />} />
             : 'No Blog Posts'
         }
+        <Route path='/post/:postId' render={() => <PostContainer />} />
       </div>
     </Router>
   )

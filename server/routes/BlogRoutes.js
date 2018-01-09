@@ -18,11 +18,11 @@ Router.route('/api/posts')
     const {userName, img, comment, location} = req.body
     const newComment = {userName, img, comment, location}
 
-    Comments(newComment).save((err, savedComment) => {
+    Comments(newComment).save((err, post) => {
       if (err) {
         res.json({error: err})
       } else {
-        res.json({msg: 'SUCCESS', data: savedComment})
+        res.json({msg: 'SUCCESS', post})
       }
     })
   })

@@ -44,7 +44,7 @@ class CreatePostContainer extends Component {
   render () {
     return (
       <div>
-        <h3> Create Post </h3>
+        <h3> Create Blog </h3>
         <PostForm 
           onNameChange={this.onNameChange}
           onImageChange={this.onImageChange}
