@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Home from './Home'
 import Blog from './Blog'
 import NavBar from './NavBar'
+import Header from './Header'
 import $ from 'jquery'
 import CreatePostContainer from './CreatePostContainer'
 import {
@@ -9,9 +10,19 @@ import {
   Route
 } from 'react-router-dom'
 
+const styles = {
+  container: {
+    backgroundImage: 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)'
+  }
+}
+
 class App extends Component {
   state = {
-    posts: undefined
+    posts: undefined,
+    userNmae: undefined,
+    img: undefined,
+    comment: undefined,
+    location: undefined
   }
 
   componentDidMount () {
@@ -30,7 +41,8 @@ loadCommentsFromServer = () => {
 render () {
   return (
     <Router>
-      <div>
+      <div style={styles.container}>
+        <Header />
         <NavBar />
         <Route exact path='/' component={Home} />
         <Route path='/createPost' render={() => <CreatePostContainer

@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import $ from 'jquery'
+import PostForm from './PostForm'
+import PropTypes from 'prop-types'
 import {
   withRouter
 } from 'react-router-dom'
@@ -10,6 +12,11 @@ class CreatePostContainer extends Component {
     img: undefined,
     comment: undefined,
     location: undefined
+  }
+
+  static propTypes = {
+    loadCommentsFromServer: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired
   }
 
   onNameChange = (e) => this.setState({ userName: e.target.value })
@@ -38,25 +45,14 @@ class CreatePostContainer extends Component {
     return (
       <div>
         <h3> Create Post </h3>
-        <form>
-          <div>
-            <label> User Name </label>
-            <input type='text' onChange={this.onNameChange} />
-          </div>
-          <div>
-            <label> Image </label>
-            <input type='text' onChange={this.onImageChange} />
-          </div>
-          <div>
-            <label> Comment </label>
-            <input type='text' onChange={this.onCommentChange} />
-          </div>
-          <div>
-            <label> Location </label>
-            <input type='text' onChange={this.onLocationChange} />
-          </div>
-          <button onClick={this.handleSubmit}> SUBMIT </button>
-        </form>
+        <PostForm 
+          onNameChange={this.onNameChange}
+          onImageChange={this.onImageChange}
+          onCommentChange={this.onCommentChange}
+          onLocationChange={this.onLocationChange}
+          handleSubmit={this.handleSubmit}
+          onChangeHandler={this.onChangeHandler}
+        />
       </div>
     )
   }

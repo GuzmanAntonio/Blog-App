@@ -2,13 +2,15 @@ import React from 'react'
 
 const styles = {
   container: {
-    display: 'flex'
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column'
   }
 }
 
 const Blog = ({posts}) =>
-  <div>
-    <h3>Blog</h3>
+  <div style={styles.container} >
+    <h3>User Post</h3>
     {
       posts.map(post => {
         return (
