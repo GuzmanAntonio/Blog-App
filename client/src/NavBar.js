@@ -45,6 +45,9 @@ const NavBar = () =>
       <div style={linkStyle.container}>
         <Link to='/createPost'> <p style={linkTextStyle.container}>Create Post</p></Link>
       </div>
+      <div style={linkStyle.container}>
+        <Link to='/editPost'> <p style={linkTextStyle.container}>Edit Post</p></Link>
+      </div>
     </nav>
   </div>
 

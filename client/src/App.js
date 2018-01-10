@@ -10,6 +10,7 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
+import EditPostContainer from './EditPostContainer'
 
 const styles = {
   container: {
@@ -67,16 +68,18 @@ render () {
       <div style={styles.container}>
         <Header />
         <NavBar />
-        <Route exact path='/' component={Home} />
+        <Route exact path='/' render={() => <Home />} />
         <Route path='/createPost' render={() => <CreatePostContainer
-          loadCommentsFromServer={this.loadCommentsFromServer} />} 
+          loadCommentsFromServer={this.loadCommentsFromServer} />}
         />
         {
           this.state.posts
             ? <Route path='/blog' render={() => <Blog showUniquePost={this.showUniquePost} deletePost={this.deletePost} posts={this.state.posts} />} />
             : 'No Blog Posts'
         }
-        <Route path='/post/:postId' render={() => <PostContainer />} />
+        <Route path='/posts/:postId' render={() => <PostContainer />} />
+        <Route path='/editPost/:postId' render={() => <EditPostContainer
+          loadCommentsFromServer={this.loadCommentsFromServer} />} />
       </div>
     </Router>
   )

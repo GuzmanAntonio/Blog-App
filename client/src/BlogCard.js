@@ -13,7 +13,19 @@ const styles = {
     backgroundColor: '#DADFE1',
     border: '2px outset #95A5A6',
     justifyContent: 'center',
-    width: '100vw'
+    width: 'calc(33% - 20px',
+    height: '250px',
+    marginTop: '4%',
+    marginLeft: '10%',
+    marginRight: '10%',
+    marginBottom: '5%' 
+  }
+}
+
+const styleImage = {
+  container: {
+    maxWidth: '80%',
+    height: 'auto'
   }
 }
 
@@ -21,10 +33,11 @@ const BlogCard = ({/* userName, img, comment, id, location, */ post, deletePost,
   return (
     <div style={styles.container} >
       <h3>{post.userName}</h3>
-      <img src={post.img} alt='' />
+      <img style={styleImage.container} src={post.img} alt='' />
       <button onClick={() => showUniquePost(post)}>SHOW INFO</button>
       <button onClick={() => deletePost(post)}>DELETE POST</button>
-      <Link to={`/post/${post._id}`}>View Comment</Link>
+      <Link to={`/posts/${post._id}`}>View Comment</Link>
+      <Link to={`/editPosts/${post._id}`}>Edit Post</Link>
     </div>
   )
 }

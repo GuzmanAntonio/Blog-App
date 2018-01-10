@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import $ from 'jquery'
-import PostForm from './PostForm'
+import EditPostForm from './EditPostForm'
 import PropTypes from 'prop-types'
 import {
   withRouter
@@ -15,7 +15,7 @@ const styles = {
   }
 }
 
-class CreatePostContainer extends Component {
+class EditPostContainer extends Component {
   state = {
     userName: undefined,
     img: undefined,
@@ -52,9 +52,9 @@ class CreatePostContainer extends Component {
 
   render () {
     return (
-      <div style={styles.container} >
-        <h3> Create Blog </h3>
-        <PostForm 
+      <div>
+        <h3 style={styles.container}> Create Blog </h3>
+        <EditPostForm 
           onNameChange={this.onNameChange}
           onImageChange={this.onImageChange}
           onCommentChange={this.onCommentChange}
@@ -66,4 +66,4 @@ class CreatePostContainer extends Component {
   }
 }
 
-export default withRouter(CreatePostContainer)
+export default withRouter(EditPostContainer)
