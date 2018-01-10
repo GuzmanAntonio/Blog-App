@@ -9,9 +9,13 @@ import {
 const styles = {
   container: {
     display: 'flex',
-    alignItems: 'center',
     flexDirection: 'column',
-    flexWrap: 'wrap'
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100vw',
+    marginTop: '20px',
+    background: '#DADFE1',
+    padding: '20px'
   }
 }
 
@@ -53,7 +57,7 @@ class EditPostContainer extends Component {
   render () {
     return (
       <div>
-        <h3 style={styles.container}> Create Blog </h3>
+        <h1 style={styles.container}> Create Blog </h1>
         <EditPostForm 
           onNameChange={this.onNameChange}
           onImageChange={this.onImageChange}

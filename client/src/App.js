@@ -11,10 +11,12 @@ import {
   Route
 } from 'react-router-dom'
 import EditPostContainer from './EditPostContainer'
+import HeaderBanner from './HeaderBanner'
 
 const styles = {
   container: {
-    backgroundImage: 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)'
+    backgroundImage: 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)',
+    width: '100vw'
   }
 }
 
@@ -67,6 +69,7 @@ render () {
     <Router>
       <div style={styles.container}>
         <Header />
+        <HeaderBanner />
         <NavBar />
         <Route exact path='/' render={() => <Home />} />
         <Route path='/createPost' render={() => <CreatePostContainer

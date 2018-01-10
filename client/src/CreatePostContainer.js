@@ -9,9 +9,13 @@ import {
 const styles = {
   container: {
     display: 'flex',
-    alignItems: 'center',
     flexDirection: 'column',
-    flexWrap: 'wrap'
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100vw',
+    marginTop: '20px',
+    background: '#DADFE1',
+    padding: '20px'
   }
 }
 

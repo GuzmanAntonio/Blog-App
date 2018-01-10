@@ -29,7 +29,7 @@ const linkStyle = {
 const linkTextStyle = {
   container: {
     color: '#ecf0f1',
-    textOutline: 'black'
+    fontSize: '30px'
   }
 }
 
@@ -37,7 +37,7 @@ const NavBar = () =>
   <div>
     <nav style={styles.container}>
       <div style={linkStyle.container}>
-        <Link to='/'> <p style={linkTextStyle.container}>Home</p></Link>
+        <Link to='/'> <p style={linkTextStyle.container}> Home</p></Link>
       </div>
       <div style={linkStyle.container}>
         <Link to='/blog'> <p style={linkTextStyle.container}>Blog</p></Link>

@@ -5,8 +5,13 @@ import BlogCard from './BlogCard'
 const styles = {
   container: {
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
-    flexDirection: 'column'
+    justifyContent: 'space-between',
+    width: '100vw',
+    marginTop: '20px',
+    background: '#DADFE1',
+    padding: '20px'
   }
 }
 
